@@ -30,7 +30,19 @@
 
             // 商品購入の関数
             function buyItem(no) {
-                // ここにコードを書く
+            const index = no - 1;
+            if (index < 0 || index >= items.length) {
+                console.log(no + "は無効な商品番号です。番号は1～" + items.length + "で指定してください。");
+            } 
+            else {
+                const item = items[index];
+                console.log("商品番号: " + item.id + ", 商品名: " + item.name + "を購入します。");
+                if (item.stock > 0) {
+                    item.stock--;
+                } else {
+                    console.log("在庫がありません。");
+                }
+            }
                 showItemList(); // 商品一覧の表示関数呼び出し
             }
 
